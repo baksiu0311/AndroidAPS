@@ -1071,6 +1071,7 @@ class SmsCommunicatorPluginTest : TestBaseWithProfile() {
         sms = Sms("1234", "CARBS 1 12:01")
         smsCommunicatorPlugin.processSms(sms)
         Assert.assertEquals("CARBS 1 12:01", smsCommunicatorPlugin.messages[0].text)
+        aapsLogger.debug("XXXXXXXXXXXX " +smsCommunicatorPlugin.messages[1].text)
         Assert.assertTrue(smsCommunicatorPlugin.messages[1].text.contains("To enter 1g at 12:01PM reply with code"))
         passCode = smsCommunicatorPlugin.messageToConfirm?.confirmCode!!
         smsCommunicatorPlugin.processSms(Sms("1234", passCode))
